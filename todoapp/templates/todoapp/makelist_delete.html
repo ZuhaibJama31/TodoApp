@@ -1,0 +1,12 @@
+{% extends "todoapp/_base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+<form method="post" class="max-w-sm mx-auto bg-white p-6 rounded shadow-md">
+    {% csrf_token %}
+    {{ form |crispy}}
+    <p class="text-gray-700">Are you sure you want to delete "{{ object }}"?</p>
+    <input class="rounded px-5 py-2 bg-green-300 hover:cursor-pointer" type="submit" value="Delete">
+</form>
+
+{% endblock content %}
